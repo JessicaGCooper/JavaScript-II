@@ -90,7 +90,32 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+//All the runners who made donations $200.00 or more will recieve a mug.  Create an Array of all the runners who donated that amount and then using that Array extra the full names of the runners who donated that amount.
+const mvpRunners = runners.filter((item) => {
+  return item.donation >= 200;
+});
+let mvpRunnerNames = [];
+mvpRunners.forEach((items) => {
+  mvpRunnerNames.push(`${items.first_name} ${items.last_name}`);
+});
+console.log(mvpRunnerNames);
 
 // Problem 2
+//The company named Skinix wants to know what the total donation from its employees added up to.  
+const skinix = runners.filter((item) => {
+  return item.company_name === 'Skinix';
+});
+const skinixDonationTotal = skinix.reduce((acc, amount) => {
+  return acc + amount.donation;
+}, 0);
+console.log(skinixDonationTotal);
 
 // Problem 3
+//The event organizer wants a list of donations which have the correct format for money.
+let moneyArray = runners.map((gift) => {
+  return gift.donation.toString();
+})
+let listArray = [];
+listArray.push(moneyArray.forEach((money) => {
+  console.log(`$${money}.00`);
+}));
