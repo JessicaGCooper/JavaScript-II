@@ -111,11 +111,13 @@ const skinixDonationTotal = skinix.reduce((acc, amount) => {
 console.log(skinixDonationTotal);
 
 // Problem 3
-//The event organizer wants a list of donations which have the correct format for money.
+//The event organizer wants a array including a list of donations which have the correct format for money.
 let moneyArray = runners.map((gift) => {
   return gift.donation.toString();
 })
-let listArray = [];
-listArray.push(moneyArray.forEach((money) => {
-  console.log(`$${money}.00`);
-}));
+let listArray = moneyArray.map((money) => {
+  return `$${money}.00`;
+});
+console.log(listArray)
+
+
