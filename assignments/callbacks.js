@@ -89,7 +89,7 @@ function multiplyNums(x, y, cb) {
   const product = x * y;
   return cb(product);
 };
-
+//note to self product is what is passed through totalCost(the CB) or rather product = total
 const totalCost = (total) => {
   items.forEach((item) => {
     console.log(`The cost of ${item}s is $${total}.`);
@@ -108,16 +108,18 @@ multiplyNums(10, 4, totalCost);
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-
+  const check = list.includes(item);
+  return cb(check, item);
 };
-
-const inventory = (item) => {
-  const check = items.includes(item);
+//here I just used the same parameter names --> check = check & item = item
+const inventory = (check, item) => {
   console.log(`It is ${check} that ${item}s are in the inventory.`)
 }
 
-const test5 = contains(items, items, inventory('Pencil'));
+contains('Pencil', items, inventory);
 //logs: It is true that Pencils are in the inventory.
+contains('Book', items, inventory);
+//logs: It is false that Books are in the inventory.
 //end 5th question
 
 /* STRETCH PROBLEM */
