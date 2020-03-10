@@ -4,6 +4,17 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function state(stateName) {
+  const fruit = 'pears';
+  console.log(`The fruit that grows most often in ${stateName} are ${fruit}.`);
+  
+  function county(countyName) {
+  console.log(`In the fall ${fruit} are all over ${countyName} County.`);
+  }// end county
+  county('Montgomery');
+}// end state
+state('Kentucky');
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
